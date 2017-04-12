@@ -13,6 +13,12 @@
 #### 1. Create user model
    * `ng g class user` (creates user.ts - this is your user form model)
    * create form variables in user.ts
+   ~~~~
+    export class User {
+    firstname: string;
+    lastname: string;
+}
+~~~~
    * bind the html form fields to the user.ts model.
 
 #### 1. Add html for the form
