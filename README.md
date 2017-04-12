@@ -1,28 +1,47 @@
-# Demo2
+# knowledge-transfer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+## Angular intro - Create simple 'html template driven' web form
+##### Demo2 illustrates creating a web form and storing the values in a model class
 
-## Development server
+- Go back to [lesson 1](https://github.com/sardeenz/demo3).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### High Level Overview
+- create user model
+- add html form to the user component's template
+- make the form pretty with a global stylesheet
 
-## Code scaffolding
+#### 1. Create user model
+   * `ng g class user` (creates user.ts - this is your user form model)
+   * create form variables in user.ts
+   * bind the html form fields to the user.ts model.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+#### 1. Add html for the form
+   ~~~~
+<div class="app-content">
+    <h1>Inside Customer Form</h1>
+    <form (ngSubmit)="onSubmit()" class="ui form">
+        <md-card class="app-input-section">
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control" id="firstname" required [(ngModel)]="form.firstname" name="firstname"> TODO: remove this: {{form | json}}
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control" id="lastname" required [(ngModel)]="form.lastname" name="lastname">
+            </div>
+            <button md-button type="submit" class="btn btn-success">Submit</button>
+        </md-card>
+    </form>
+    <div>
+        {{users | json}}
+    </div>
+</div>
+~~~~
 
-## Build
+#### 3. Make it look pretty
+   * add this to styles.css (global stylesheet)
+   * `@import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+#### 5. Proceed to [lesson 3](https://github.com/sardeenz/demo3)
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- tips
